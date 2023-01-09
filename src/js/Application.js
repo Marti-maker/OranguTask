@@ -1,4 +1,5 @@
 import EventEmitter from "eventemitter3";
+const divElement=document.getElementById('emojis');
 
 export default class Application extends EventEmitter {
   static get events() {
@@ -17,5 +18,17 @@ export default class Application extends EventEmitter {
     this.emojis = emojis;
   }
 
-  addBananas() {}
+  addBananas() {
+    const newEmojies = this.emojis.map((emojy) => {
+      return (`${emojy} ${this.banana}`)
+    });
+    newEmojies.forEach(emoji => {
+      let newP=document.createElement('p');
+      newP.innerHTML=emoji;
+      divElement.appendChild(newP);
+      
+    });
+    
+
+  }
 }
